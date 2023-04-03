@@ -1,7 +1,7 @@
 import axios from "axios";
 import {Message} from "./types";
 
-const BASE_URL = "http://localhost:3000";
+const BASE_URL = "http://localhost:3001";
 
 export const getChannels = async () => {
     const response = await axios.get(`${BASE_URL}/channels`);
@@ -14,7 +14,7 @@ export const getChannelMessages = async (channelId: number) => {
 };
 
 export async function createMessage(channelId: number, text: string, userId: undefined): Promise<Message> {
-    const response = await fetch(`${BASE_URL}/messages`, {
+    const response = await fetch(`${BASE_URL}/channels/${channelId}/messages`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
