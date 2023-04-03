@@ -13,13 +13,13 @@ export const getChannelMessages = async (channelId: number) => {
     return response.data;
 };
 
-export async function createMessage(channelId: number, text: string, userId: undefined): Promise<Message> {
+export async function createMessage(channelId: number, text: string, userId: number): Promise<Message> {
     const response = await fetch(`${BASE_URL}/channels/${channelId}/messages`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ channelId, text, userId }),
+        body: JSON.stringify({ text, userId }),
     });
     if (!response.ok) {
         throw new Error('Failed to create message');

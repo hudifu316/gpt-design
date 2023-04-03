@@ -1,10 +1,10 @@
-import express, { Request, Response } from 'express';
+import express, {json, Request, Response} from 'express';
 import { Channel, Message } from './types';
 import cors from 'cors';
 
 const app = express();
 app.use(cors()); // CORSを許可する
-
+app.use(json());
 // チャンネル一覧を返すAPI
 app.get('/channels', (req: Request, res: Response) => {
   const channels: Channel[] = [

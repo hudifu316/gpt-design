@@ -40,7 +40,7 @@ export const Chat = () => {
     const handleNewMessageSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         if (selectedChannel) {
-            const message = await createMessage(selectedChannel.id, newMessageText, undefined);
+            const message = await createMessage(selectedChannel.id, newMessageText, 1);
             setMessages([...messages, message]);
             setNewMessageText('');
         }
